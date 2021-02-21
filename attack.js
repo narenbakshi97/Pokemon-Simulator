@@ -56,7 +56,7 @@ function myAttacks(pkmn){
 function showMyAttacks(){
   document.getElementById("self_attacks").innerHTML = "";
   let str = "";
-  let k = Math.floor(Math.random() * myMoves.length);
+  let k = Math.floor(Math.random() * (myMoves.length - 4));
   for(let i = 0; i < 4; i++){
       //console.log(myMoves[i].name);
       str += "<button onclick='moveChoice("+k+")'>"+myMoves[k].name+"</button><br>";
