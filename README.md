@@ -14,5 +14,5 @@ Continued to work on the Pokemon game and added functionalities like catching a 
 ## Step 3
 Game is almost finished, only thing which is pending is to evolve your Pokemon and release functionality, will figure out later how to use the evolution chain  and etc. resources. ✔
 
-[Heres the link of the working code](https://pokemonsimulator.000webhostapp.com/)
+[Heres the link of the working code](https://narenbakshi97.github.io/Pokemon-Simulator/)
 ![Pokemon Simulator Output 2](https://i.imgur.com/IkBeShp.gif)
