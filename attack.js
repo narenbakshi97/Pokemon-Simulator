@@ -97,6 +97,8 @@ function moveChoice(index){
     let Z = Math.floor(Math.random() * 255 + 217);
     //((2A/5+2)*B*C)/D)/50)+2)*X)*Y/10)*Z)/255
     //(((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255
+    
+    if (D === 0) D = 1;    
     ans = (((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255;
 
     //console.log(ans);
@@ -161,6 +163,8 @@ function wildTurn(){
       let Z = Math.floor(Math.random() * 255 + 217);
       //((2A/5+2)*B*C)/D)/50)+2)*X)*Y/10)*Z)/255
       //(((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255
+      
+      if (D === 0) D = 1;
       ans = (((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255;
       //console.log(ans);
       // let's actually damge that pokemon
