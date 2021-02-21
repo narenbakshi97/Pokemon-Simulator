@@ -1,0 +1,67 @@
+#screen{
+  display:none;
+  text-align: center;
+  border:black double 5px;
+  min-height: 400px;
+  padding:10px;
+}
+#user, #enemy{
+  margin:20px 0;
+}
+#screen ul{
+  text-align: left;
+  margin-top:-5%;
+}
+#user form{
+  text-align:left;
+  margin-top:-1%;
+}
+#choice{
+  text-align:center;
+  color:;
+}
+#ststus, #myMoney{
+  display:inline;
+}
+img{
+  height:100px;
+}
+#enemy_image{
+  margin-left: 500px;
+}
+#myPokemons img{
+  width:70px;
+  height:70px;
+}
+#myPokemons{
+  border:5px double black;
+  float:right;
+  padding:0px 2px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width:500px;
+}
+#enemy_health, #enemy_lvl, #self_health, #self_level{
+  padding:0 20px;
+}
+#myBag{
+    border:5px double black;
+    float:left;
+    padding:5px;
+}
+#myBag img{
+  height:25px;
+}
+#shop{
+  border:5px double black;
+  float:left;
+  padding:15px ;
+}
+ol li{
+  display:inline;
+}
+ol li img{
+  border:2px solid;
+  padding:15px;
+  margin:0px 10px;
+}
