@@ -1,67 +1,96 @@
-#screen{
-  display:none;
-  text-align: center;
-  border:black double 5px;
-  min-height: 400px;
-  padding:10px;
+#screen {
+	display: none;
+	text-align: center;
+	border: black double 5px;
+	min-height: 400px;
+	padding: 10px;
 }
-#user, #enemy{
-  margin:20px 0;
+#user,
+#enemy {
+	margin: 20px 0;
 }
-#screen ul{
-  text-align: left;
-  margin-top:-5%;
+#screen ul {
+	text-align: left;
+	margin-top: -5%;
 }
-#user form{
-  text-align:left;
-  margin-top:-1%;
+#user form {
+	text-align: left;
+	margin-top: -1%;
 }
-#choice{
-  text-align:center;
-  color:;
+#choice {
+	text-align: center;
+	color: ;
 }
-#ststus, #myMoney{
-  display:inline;
+#ststus,
+#myMoney {
+	display: inline;
 }
-img{
-  height:100px;
+img {
+	height: 100px;
 }
-#enemy_image{
-  margin-left: 500px;
+#enemy_image {
+	margin-left: 500px;
 }
-#myPokemons img{
-  width:70px;
-  height:70px;
+#myPokemons img {
+	width: 70px;
+	height: 70px;
 }
-#myPokemons{
-  border:5px double black;
-  float:right;
-  padding:0px 2px;
-  overflow: auto;
-  white-space: nowrap;
-  max-width:500px;
+#myPokemons {
+	border: 5px double black;
+	float: right;
+	padding: 0px 2px;
+	overflow: auto;
+	white-space: nowrap;
+	max-width: 500px;
 }
-#enemy_health, #enemy_lvl, #self_health, #self_level{
-  padding:0 20px;
+#enemy_health,
+#enemy_lvl,
+#self_health,
+#self_level {
+	padding: 0 20px;
 }
-#myBag{
-    border:5px double black;
-    float:left;
-    padding:5px;
+#myBag {
+	border: 5px double black;
+	float: left;
+	padding: 5px;
 }
-#myBag img{
-  height:25px;
+#myBag img {
+	height: 25px;
 }
-#shop{
-  border:5px double black;
-  float:left;
-  padding:15px ;
+#shop {
+	border: 5px double black;
+	float: left;
+	padding: 15px;
 }
-ol li{
-  display:inline;
+ol li {
+	display: inline;
 }
-ol li img{
-  border:2px solid;
-  padding:15px;
-  margin:0px 10px;
+ol li img {
+	border: 2px solid;
+	padding: 15px;
+	margin: 0px 10px;
+}
+
+.hidden-elements {
+	display: none;
+}
+
+#startButton {
+	font-family: Hack, monospace;
+	background: #bbff00;
+	color: #1d1d1d;
+	cursor: pointer;
+	font-size: 2em;
+	padding: 1.5rem;
+	border: 0;
+	transition: all 0.5s;
+	border-radius: 10px;
+	width: auto;
+	position: relative;
+	min-width: 250px;
+}
+
+.welcoming-page {
+	text-align: center;
+	margin-top: 10%;
 }
