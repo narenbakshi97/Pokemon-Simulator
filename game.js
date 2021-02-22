@@ -30,7 +30,7 @@ function resume_game(){
   battle = false;
   current_turn = turn[0];
   battleSound.pause();
-  document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
+  document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
   document.getElementById("enemy").style.display = "none";
   document.getElementById("self_health").innerHTML = null;
   document.getElementById("self_hp").innerHTML = null;
@@ -42,7 +42,7 @@ function start_game(){
   pokeballs_thrown = 0;
   setInterval(wildTurn, 1500);
   battle = false;
-  document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
+  document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
   showBag();
   document.getElementById("shop").innerHTML = "<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
   document.getElementById("daily").play();
