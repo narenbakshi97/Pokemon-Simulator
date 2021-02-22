@@ -34,81 +34,78 @@ var enemy_hp;
 // flag variable to determine whose turn is this?
 current_turn = turn[0];
 
-function resume_game() {
-	pokeballs_thrown = 0;
-	enemy_current_lvl = 100;
-	my_current_lvl = 100;
-	battle = false;
-	current_turn = turn[0];
-	battleSound.pause();
-	document.getElementById('myMoney').innerHTML = 'Money: ' + myMoney;
-	document.getElementById('enemy').style.display = 'none';
-	document.getElementById('self_health').innerHTML = null;
-	document.getElementById('self_hp').innerHTML = null;
-	document.getElementById('self_attacks').innerHTML = null;
-	document.getElementById('daily').play();
+
+function resume_game(){
+  pokeballs_thrown = 0;
+  enemy_current_lvl = 100;
+  my_current_lvl = 100;
+  battle = false;
+  current_turn = turn[0];
+  battleSound.pause();
+  document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
+  document.getElementById("enemy").style.display = "none";
+  document.getElementById("self_health").innerHTML = null;
+  document.getElementById("self_hp").innerHTML = null;
+  document.getElementById("self_attacks").innerHTML = null;
+  document.getElementById("daily").play();
 }
 
-function start_game() {
-	pokeballs_thrown = 0;
-	setInterval(wildTurn, 1500);
-	battle = false;
-	document.getElementById('myMoney').innerHTML = 'Money: ' + myMoney;
-	showBag();
-	document.getElementById('shop').innerHTML =
-		"<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
-	document.getElementById('daily').play();
-	intro_music.pause();
-	var choice = '';
-	if (document.getElementById('c1').checked) {
-		choice = 'Bulbasaur';
-		my_pokemon = 1;
-	} else if (document.getElementById('c2').checked) {
-		choice = 'Charmander';
-		my_pokemon = 4;
-	} else if (document.getElementById('c3').checked) {
-		choice = 'Squirtle';
-		my_pokemon = 7;
-	}
-	// store to myPokemons
-	var newEntry;
-	request.open(
-		'GET',
-		'https://pokeapi.co/api/v2/pokemon/' + my_pokemon + '/',
-		true
-	);
-	request.onload = function () {
-		newEntry = JSON.parse(this.response);
-		newEntry.hp = 50;
-		newEntry.exp = newEntry.base_experience;
-		myAttacks(newEntry);
-		pokemons_caught.push(newEntry);
-		showMyPokemons();
-	};
-	request.send();
-	// play the sound of your Pokemon
-	new Audio('sounds/00' + my_pokemon + ' - ' + choice + '.wav').play();
-	// show my pokemon
-	// user part
-	document.getElementById('self_appearance').innerHTML =
-		'<b>' + choice + '</b>';
-	// padding  0 to fetch the image
-	var self_image_str = '' + my_pokemon;
-	while (self_image_str.length < 3) {
-		self_image_str = '0' + self_image_str;
-	}
-	document.getElementById('self_image').src =
-		'pokemon/back/' + self_image_str + '.gif';
-	// var self_atcks = "<form>";
-	// for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
-	//   self_atcks += ("<input type = 'radio' id= 'a"+i+"' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].name+"'>"+pokemon[my_pokemon-1].moves[i].name+"</br>");
-	// }
-	// self_atcks += "<br><input type='button' value='FIGHT' onclick='attack()'/></form>";
-	// document.getElementById("self_attacks").innerHTML = self_atcks;
+function start_game(){
+  pokeballs_thrown = 0;
+  setInterval(wildTurn, 1500);
+  battle = false;
+  document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
+  showBag();
+  document.getElementById("shop").innerHTML = "<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
+  document.getElementById("daily").play();
+  intro_music.pause();
+  var choice = "";
+  if(document.getElementById("c1").checked){
+    choice = "Bulbasaur";
+    my_pokemon = 1;
+  }
+  else if(document.getElementById("c2").checked){
+    choice = "Charmander";
+    my_pokemon = 4;
+  }
+  else if(document.getElementById("c3").checked){
+    choice = "Squirtle";
+    my_pokemon = 7;
+  }
+  // store to myPokemons
+  var newEntry;
+  request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+my_pokemon+'/', true);
+  request.onload = function () {
+    newEntry = JSON.parse(this.response);
+    newEntry.hp = 50;
+    newEntry.exp = newEntry.base_experience;
+    myAttacks(newEntry);
+    pokemons_caught.push(newEntry);
+    showMyPokemons();
+  }
+  request.send();
+  // play the sound of your Pokemon
+  new Audio("sounds/00"+my_pokemon+" - "+choice+".wav").play();
+  // show my pokemon
+  // user part
+  document.getElementById("self_appearance").innerHTML = "<b>"+choice+"</b>";
+  // padding  0 to fetch the image
+  var self_image_str = ""+my_pokemon;
+  while(self_image_str.length < 3){
+    self_image_str = ("0"+self_image_str);
+  }
+  document.getElementById("self_image").src = "pokemon/back/"+self_image_str+".gif";
+  // var self_atcks = "<form>";
+  // for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
+  //   self_atcks += ("<input type = 'radio' id= 'a"+i+"' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].name+"'>"+pokemon[my_pokemon-1].moves[i].name+"</br>");
+  // }
+  // self_atcks += "<br><input type='button' value='FIGHT' onclick='attack()'/></form>";
+  // document.getElementById("self_attacks").innerHTML = self_atcks;
 
-	//alert("You have choosen "+ choice);
-	document.getElementById('choice').style.display = 'none';
-	document.getElementById('screen').style.display = 'block';
+  //alert("You have choosen "+ choice);
+  document.getElementById("choice").style.display = "none";
+  document.getElementById("screen").style.display = "block";
+
 }
 
 // run
