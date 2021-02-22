@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pokemon Game</title>
-    <link rel="stylesheet" href="master.css">
-  </head>
-  <body onload="intro()">
-    <audio autoplay loop id="daily">
-      <source src="sounds/daily.mp3" type="audio/mp3"/>
-    </audio>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokemon Game</title>
+		<link rel="stylesheet" href="master.css" />
+	</head>
+	<body onload="welcome_page()">
+		<div class="welcoming-page">
+			<button id="startButton">Start the game</button>
+		</div>
+		<div class="hidden-elements" id="mainDiv">
+			<audio autoplay loop id="daily">
+				<source src="sounds/daily.mp3" type="audio/mp3" />
+			</audio>
+			<div>
+				<h1>The Pokemon Fighting Simulator</h1>
+				<span
+					style="float: left; color: green; font-weight: bold"
+					id="status"
+				></span>
+				<b><span id="myMoney" style="float: right"></span></b><br />
+			</div>
+			<div id="choice">
+				<h2>Select your Pokemon</h2>
+				<form>
+					<input type="radio" id="c1" name="first_pokemon" value="Bulbasaur" />
+					<label for="c1"
+						><img src="pokemon/front/001.gif" alt="bulbasaur"
+					/></label>
 
-    <div>
-    <h1>The Pokemon Fighting Simulator</h1>
-    <span style="float:left; color: green; font-weight:bold;" id="status"></span>
-    <b><span id="myMoney" style="float:right"></span></b><br>
-  </div>
-    <div id="choice">
-      <h2>Select your Pokemon</h2>
-      <form>
-        <input  type="radio" id="c1" name="first_pokemon" value="Bulbasaur">
-        <label for="c1"><img src="pokemon/front/001.gif" alt="bulbasaur"></label>
+					<input type="radio" id="c2" name="first_pokemon" value="Charmander" />
+					<label for="c2"
+						><img src="pokemon/front/004.gif" alt="charmander"
+					/></label>
 
-        <input type="radio" id="c2" name="first_pokemon" value="Charmander">
-        <label for="c2"><img src="pokemon/front/004.gif" alt="charmander"></label>
+					<input type="radio" id="c3" name="first_pokemon" value="Squartle" />
+					<label for="c3"
+						><img src="pokemon/front/007.gif" alt="squartle"
+					/></label>
 
-        <input type="radio" id="c3" name="first_pokemon" value="Squartle">
-        <label for="c3"><img src="pokemon/front/007.gif" alt="squartle"></label>
+					<input type="button" value="submit" onclick="start_game()" />
+				</form>
+			</div>
 
-        <input type="button" value="submit" onclick="start_game()">
-      </form>
-    </div>
+			<div id="screen">
+				<div id="buttons">
+					<button type="button" name="button" onclick="run()">
+						Press This to find a pokemon
+					</button>
+				</div>
+				<div id="enemy">
+					<h3 style="text-align: left" id="wild_appearance"></h3>
+					<img id="enemy_image" src="" alt="" />
+					<span id="enemy_hp"></span>
+					<span id="enemy_health"></span>
 
-    <div id="screen">
-      <div id="buttons">
-        <button type="button" name="button" onclick= "run()">Press This to find a pokemon</button>
-      </div>
-      <div id="enemy">
-        <h3 style="text-align:left;" id="wild_appearance"></h3>
-        <img id="enemy_image" src="" alt="">
-        <span id="enemy_hp"></span>
-        <span id="enemy_health"></span>
-
-        <div id="enemy_attacks">
-        </div>
-      </div>
-      <div id="user">
-        <h3 style="text-align:left" id="self_appearance"></h3>
-        <img id="self_image" src="" alt="">
-        <span id="self_hp"></span>
-        <span id="self_health"></span>
-        <div id="self_attacks"></div>
-      </div>
-
-    </div>
-
-    <span id="myBag">
-
-    </span>
-    <span id="shop">
-
-    </span>
-    <span id="myPokemons">
-
-    </span>
-  </body>
-  <script src="typeModifier.js"></script>
-  <script src="attack.js"></script>
-  <script src="bag.js"></script>
-  <script src="pokemon.js"></script>
-  <script src="game.js"></script>
+					<div id="enemy_attacks"></div>
+				</div>
+				<div id="user">
+					<h3 style="text-align: left" id="self_appearance"></h3>
+					<img id="self_image" src="" alt="" />
+					<span id="self_hp"></span>
+					<span id="self_health"></span>
+					<div id="self_attacks"></div>
+				</div>
+			</div>
+			<span id="myBag"> </span>
+			<span id="shop"> </span>
+			<span id="myPokemons"> </span>
+		</div>
+	</body>
+	<script src="typeModifier.js"></script>
+	<script src="attack.js"></script>
+	<script src="bag.js"></script>
+	<script src="pokemon.js"></script>
+	<script src="game.js"></script>
 </html>
