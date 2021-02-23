@@ -1,9 +1,9 @@
-<img src="pokemon/front/1.png"/> <img src="pokemon/front/4.png"/> <img src="pokemon/front/7.png"/> <img src="pokemon/front/10.png"/> <img src="pokemon/front/13.png"/> <img src="pokemon/front/16.png"/> <img src="pokemon/front/19.png"/> <img src="pokemon/front/21.png"/> <img src="pokemon/front/23.png"/> <img src="pokemon/front/25.png"/> <img src="pokemon/front/27.png"/> <img src="pokemon/front/29.png"/> <img src="pokemon/front/32.png"/> <img src="pokemon/front/35.png"/> <img src="pokemon/front/37.png"/> <img src="pokemon/front/39.png"/> <img src="pokemon/front/41.png"/> <img src="pokemon/front/43.png"/> <img src="pokemon/front/46.png"/> <img src="pokemon/front/48.png"/> <img src="pokemon/front/50.png"/> <img src="pokemon/front/52.png"/> <img src="pokemon/front/54.png"/> 
-
-
 # Pokemon Simulator Game
 
 ## Want to Contribute?
+
+<img src="pokemon/front/1.png"/> <img src="pokemon/front/4.png"/> <img src="pokemon/front/7.png"/> <img src="pokemon/front/10.png"/> <img src="pokemon/front/13.png"/> <img src="pokemon/front/16.png"/> <img src="pokemon/front/19.png"/> <img src="pokemon/front/21.png"/> <img src="pokemon/front/23.png"/> <img src="pokemon/front/25.png"/> <img src="pokemon/front/27.png"/> <img src="pokemon/front/29.png"/> <img src="pokemon/front/32.png"/> <img src="pokemon/front/35.png"/> <img src="pokemon/front/37.png"/> <img src="pokemon/front/39.png"/> <img src="pokemon/front/41.png"/> <img src="pokemon/front/43.png"/> <img src="pokemon/front/46.png"/> <img src="pokemon/front/48.png"/> <img src="pokemon/front/50.png"/> <img src="pokemon/front/52.png"/> <img src="pokemon/front/54.png"/> 
+
 [Here are the guidelines!](/CONTRIBUTING.md)
 
 ### Resources used
