@@ -17,7 +17,7 @@ Started making a simple Pokemon fighting game, similar to Pokemon Simulator usin
 
 ## Step 2
 Continued to work on the Pokemon game and added functionalities like catching a Pokemon, using API instead of hard coded data, Shopping Pokeballs, etc. variables. ✔
-![Pokemon Simulator Output 1](https://i.imgur.com/wXd8kk0.gif)
+<img src="pokemon/front/1.gif"/>
 
 ## Step 3
 Game is almost finished, only thing which is pending is to evolve your Pokemon and release functionality, will figure out later how to use the evolution chain  and etc. resources. ✔
