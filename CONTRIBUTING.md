@@ -11,6 +11,7 @@ I learned and thanks to your contribution, I am learning a lot, through this pro
 - [x] Go to the issue page and select the issue you would like to work on
 - [x] If you would like to add something which is not addressed, create a new issue and decribe the feature and whether you would like to work on it
 - [x] Write a comment requesting assignment on the issue page and once you get the permission, fork the repository
+- [x] Your commit message should be descriptive 
 - [x] once you have made the modifications and solved/added as per the issue, create a pull request
 - [x] NOTE that the pull request title should be of format: YOUR_USERNAME_SOLVED/ISSUE_TITLE, so if your username is AshKetchum and you solved an Issue with title "Add Battle Feature", your pull request title should be, AshKetchum_Solved/Add_Battle_Feature
 - [x] PLEASE note that your contribution won't be added if you put a pull request directly before getting it assigned to you
