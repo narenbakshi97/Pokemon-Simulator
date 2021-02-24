@@ -72,6 +72,10 @@ function start_game(){
     choice = "Squirtle";
     my_pokemon = 7;
   }
+  else if(document.getElementById("c4").checked){
+    choice = "Pikachu";
+    my_pokemon = 25;
+  }
   // store to myPokemons
   var newEntry;
   request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+my_pokemon+'/', true);
