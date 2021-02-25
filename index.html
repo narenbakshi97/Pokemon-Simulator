@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="master.css" />
 	</head>
 	<body onload="welcome_page()">
-		<div class="welcoming-page" style="margin: auto; padding-top: 200px;">
+		<div class="welcoming-page" style="margin-top: auto; padding-top: 200px;">
 			<button id="startButton">Start the game</button>
 		</div>
 		<div class="hidden-elements" id="mainDiv">
@@ -34,6 +34,11 @@
 					<input type="radio" id="c3" name="first_pokemon" value="Squartle" />
 					<label for="c3"
 						><img src="pokemon/front/007.gif" alt="squartle"
+					/></label>
+
+					<input type="radio" id="c4" name="first_pokemon" value="Pikachu" />
+					<label for="c4"
+						><img src="pokemon/front/025.gif" alt="pikachu"
 					/></label>
 
 					<input type="button" value="submit" onclick="start_game()" />
@@ -73,10 +78,13 @@
     </div>
   </div>
 </div>
+</div>
+<div id = "spacing">
 			<span id="myBag"> </span>
 			<span id="shop"> </span>
 			<span id="myPokemons"> </span>
-		</div>
+			</div>
+		
 	</body>
 	<script src="typeModifier.js"></script>
 	<script src="attack.js"></script>
