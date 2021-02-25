@@ -42,6 +42,7 @@ img {
 	overflow: auto;
 	white-space: nowrap;
 	max-width: 500px;
+	margin-top : 20px;
 }
 #enemy_health,
 #enemy_lvl,
@@ -52,6 +53,7 @@ img {
 #myBag {
 	border: 5px double black;
 	float: left;
+	margin-top : 20px;
 	padding: 5px;
 }
 #myBag img {
@@ -61,6 +63,7 @@ img {
 	border: 5px double black;
 	float: left;
 	padding: 15px;
+	margin-top :20px;
 }
 ol li {
 	display: inline;
@@ -129,4 +132,8 @@ ol li img {
   font-size: 14px;
   line-height: 1.5;
   color: #797979;
+}
+
+#spacing{
+	margin-top : 10px;
 }
