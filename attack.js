@@ -200,6 +200,7 @@ function wildTurn() {
 					myMoney /= 2;
 					fixMoney(2);
 				}
+				statusUpdate('');
 				resume_game();
 			}
 			current_turn = turn[0];
