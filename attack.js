@@ -113,7 +113,7 @@ function moveChoice(index) {
 		//console.log(damage);
 		enemy_current_lvl -= damage;
 		enemy_current_lvl = Math.floor(enemy_current_lvl);
-		new Audio('sounds/Tackle.wav').play();
+		SoundsManager.play('tackle');
 		document.getElementById('enemy_health').innerHTML =
 			'<strong>Health:' + enemy_current_lvl + '/100</strong>';
 		statusUpdate(
@@ -191,7 +191,7 @@ function wildTurn() {
 			//console.log(damage);
 			my_current_lvl -= damage;
 			my_current_lvl = Math.floor(my_current_lvl);
-			new Audio('sounds/Tackle.wav').play();
+			SoundsManager.play('tackle');
 			document.getElementById('self_health').innerHTML =
 				'<strong>Health:' + my_current_lvl + '/100</strong>';
 			if (my_current_lvl <= 0) {

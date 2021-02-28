@@ -1,14 +1,17 @@
 // intro
 var request = new XMLHttpRequest();
 var pokeballs_thrown = 0;
-var intro_music;
-var battleSound;
 var myMoney = 100;
 var currentPokemonIndex = 0;
 var battle = false;
 var my_lvls = { max: 5, min: 5 };
 var enemy_current_lvl = 100;
 var my_current_lvl = 100;
+
+SoundsManager.registerSound('daily', 'sounds/daily.mp3', true);
+SoundsManager.registerSound('intro', 'sounds/opening.mp3');
+SoundsManager.registerSound('battle', 'sounds/battle.mp3');
+SoundsManager.registerSound('tackle', 'sounds/Tackle.wav');
 
 function welcome_page() {
 	const hiddenElem = document.getElementById('mainDiv');
@@ -21,11 +24,7 @@ function welcome_page() {
 }
 
 function intro() {
-	document.getElementById('daily').pause();
-
-	intro_music = new Audio('sounds/opening.mp3');
-	intro_music.play();
-	battleSound = new Audio('sounds/battle.mp3');
+	SoundsManager.play('intro');
 }
 
 var my_pokemon = 0;
@@ -41,13 +40,13 @@ function resume_game(){
   my_current_lvl = 100;
   battle = false;
   current_turn = turn[0];
-  battleSound.pause();
+  SoundsManager.pause('battle');
   document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
   document.getElementById("enemy").style.display = "none";
   document.getElementById("self_health").innerHTML = null;
   document.getElementById("self_hp").innerHTML = null;
   document.getElementById("self_attacks").innerHTML = null;
-  document.getElementById("daily").play();
+  SoundsManager.play('daily');
 }
 
 function start_game(){
@@ -57,8 +56,8 @@ function start_game(){
   document.getElementById("myMoney").innerHTML = "Money: "+myMoney.toFixed(2);
   showBag();
   document.getElementById("shop").innerHTML = "<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
-  document.getElementById("daily").play();
-  intro_music.pause();
+  SoundsManager.play('daily');
+  SoundsManager.pause('intro');
   var choice = "";
   if(document.getElementById("c1").checked){
     choice = "Bulbasaur";
@@ -89,7 +88,7 @@ function start_game(){
   }
   request.send();
   // play the sound of your Pokemon
-  new Audio("sounds/0"+my_pokemon+" - "+choice+".wav").play();
+  SoundsManager.playSoundFromSource("sounds/00"+my_pokemon+" - "+choice+".wav");
   // show my pokemon
   // user part
   document.getElementById("self_appearance").innerHTML = "<b>"+choice+"</b>";
@@ -128,10 +127,13 @@ function run() {
 	my_current_lvl = 100;
 	battle = true;
 	data = null;
-	battleSound.pause();
-	battleSound.currentTime = 0;
-	document.getElementById('daily').pause();
-	battleSound.play();
+	//battleSound.pause();
+	SoundsManager.pause('battle');
+	SoundsManager.pause('daily');
+	//battleSound.currentTime = 0;
+	//document.getElementById('daily').pause();
+	//battleSound.play();
+	SoundsManager.play('battle', 0);
 	var random = Math.floor(Math.random() * 150) + 1;
 	//console.log(random);
 	//  console.log(pokemon[random-1]);
@@ -172,10 +174,9 @@ function run() {
 				.toUpperCase()
 				.concat(data.name.substring(1));
 			//console.log(enemy_snd_file);
-			var snd = new Audio(
-				'sounds/' + enemy_image_str + ' - ' + enemy_snd_file + '.wav'
-			);
-			snd.play();
+			
+			SoundsManager.playSoundFromSource('sounds/' + enemy_image_str + ' - ' + enemy_snd_file + '.wav');
+			
 			// show
 			document.getElementById('enemy_image').src =
 				'pokemon/front/' + enemy_image_str + '.gif';
