@@ -8,9 +8,11 @@
 	<body onload="welcome_page()">
 		<div class="welcoming-page" style="margin-top:20px;; padding-top: 15px;">
 			<button id="startButton">Start the game</button>
-			<button id="mute" onclick="SoundsManager.toggleMute()">Mute/unMute</button>
 		</div>
 		<div class="hidden-elements" id="mainDiv">
+			<audio autoplay loop id="daily">
+				<source src="sounds/daily.mp3" type="audio/mp3" />
+			</audio>
 			<div style="text-align: center;">
 				<h1>The Pokemon Simulator</h1>
 				
@@ -84,7 +86,6 @@
 			</div>
 		
 	</body>
-	<script src="soundsManager.js"></script>
 	<script src="typeModifier.js"></script>
 	<script src="attack.js"></script>
 	<script src="bag.js"></script>
