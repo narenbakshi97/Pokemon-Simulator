@@ -26,7 +26,7 @@ function pokemonMain(id,index){
     while(my_pokemon.length < 3){
       my_pokemon = ("0"+my_pokemon);
     }
-    new Audio("sounds/"+my_pokemon+" - "+choice+".wav").play();
+    SoundsManager.playSoundFromSource('sounds/'+my_pokemon+' - '+choice+'.wav');
     // show my pokemon
     // user part
     document.getElementById("self_appearance").innerHTML = "<b>"+choice+"</b>";
