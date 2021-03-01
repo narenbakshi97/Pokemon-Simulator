@@ -108,7 +108,7 @@ function start_game(){
   //alert("You have choosen "+ choice);
   document.getElementById("choice").style.display = "none";
   document.getElementById("screen").style.display = "block";
-  
+  document.getElementById("spacing").style.display = "block"
   
 
 }

@@ -135,5 +135,6 @@ ol li img {
 }
 
 #spacing{
+	display : none;
 	margin-top : 10px;
 }
