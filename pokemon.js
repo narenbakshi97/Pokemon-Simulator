@@ -93,10 +93,34 @@ function catchPokemon(){
 }
 function levelCheck(pklvl){
   let i = 0;
+ 
   while(pklvl >= exp_levels[i]){
     i++;
   }
-  let ans = i - 1;
+  Í
+  let level = i - 1;
+  console.log('ANS', ans)
   console.log("Your pokemon is at:"+(i-1));
   pokemons_caught[currentPokemonIndex].hp = ans*10;
+
+  const currentPokemon = pokemons_caught[currentPokemonIndex]
+  
+  checkEvolution(currentPokemon.id, level)
+}
+
+function checkEvolution(pokemonid, pokemonlevel){
+	request.open('GET',`https://pokeapi.co/api/v2/evolution-chain/${pokemonid}/`)
+	request.onload = function(){
+		data = JSON.parse(this.response)
+		if(data){
+      console.log(data.chain.evolves_to[0].evolution_details[0].min_level)
+      let level_to_evolve = data.chain.evolves_to[0].evolution_details[0].min_level
+      if(pokemonlevel >= level_to_evolve){
+        console.log('Would you like to evolve?')
+      }
+		}
+
+	}
+	request.send()
+
 }
