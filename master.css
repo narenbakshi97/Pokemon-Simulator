@@ -1,101 +1,101 @@
 #screen {
-	display: none;
-	text-align: center;
-	border: black double 5px;
-	min-height: 400px;
-	padding: 10px;
+  display: none;
+  text-align: center;
+  border: black double 5px;
+  min-height: 400px;
+  padding: 10px;
 }
 #user,
 #enemy {
-	margin: 20px 0;
+  margin: 20px 0;
 }
 #screen ul {
-	text-align: left;
-	margin-top: -5%;
+  text-align: left;
+  margin-top: -5%;
 }
 #user form {
-	text-align: left;
-	margin-top: -1%;
+  text-align: left;
+  margin-top: -1%;
 }
 #choice {
-	text-align: center;
-	color: ;
+  text-align: center;
+  color: ;
 }
 #ststus,
 #myMoney {
-	display: inline;
+  display: inline;
 }
 img {
-	height: 100px;
+  height: 100px;
 }
 #enemy_image {
-	margin-left: 500px;
+  margin-left: 500px;
 }
 #myPokemons img {
-	width: 70px;
-	height: 70px;
+  width: 70px;
+  height: 70px;
 }
 #myPokemons {
-	border: 5px double black;
-	float: right;
-	padding: 0px 2px;
-	overflow: auto;
-	white-space: nowrap;
-	max-width: 500px;
-	margin-top : 20px;
+  border: 5px double black;
+  float: right;
+  padding: 0px 2px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 500px;
+  margin-top: 20px;
 }
 #enemy_health,
 #enemy_lvl,
 #self_health,
 #self_level {
-	padding: 0 20px;
+  padding: 0 20px;
 }
 #myBag {
-	border: 5px double black;
-	float: left;
-	margin-top : 20px;
-	padding: 5px;
+  border: 5px double black;
+  float: left;
+  margin-top: 20px;
+  padding: 5px;
 }
 #myBag img {
-	height: 25px;
+  height: 25px;
 }
 #shop {
-	border: 5px double black;
-	float: left;
-	padding: 15px;
-	margin-top :20px;
+  border: 5px double black;
+  float: left;
+  padding: 15px;
+  margin-top: 20px;
 }
 ol li {
-	display: inline;
+  display: inline;
 }
 ol li img {
-	border: 2px solid;
-	padding: 15px;
-	margin: 0px 10px;
+  border: 2px solid;
+  padding: 15px;
+  margin: 0px 10px;
 }
 
 .hidden-elements {
-	display: none;
+  display: none;
 }
 
 #startButton {
-	font-family: Hack, monospace;
-	background: #bbff00;
-	color: #1d1d1d;
-	cursor: pointer;
-	font-size: 2em;
-	padding: 1.5rem;
-	border: 0;
-	transition: all 0.5s;
-	border-radius: 10px;
-	width: auto;
-	position: relative;
-	min-width: 250px;
+  font-family: Hack, monospace;
+  background: #bbff00;
+  color: #1d1d1d;
+  cursor: pointer;
+  font-size: 2em;
+  padding: 1.5rem;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+  min-width: 250px;
 }
 
 .welcoming-page {
-	text-align: center;
-	margin-top: 10%;
+  text-align: center;
+  margin-top: 10%;
 }
 .arrow {
   width: 0px;
@@ -106,13 +106,12 @@ ol li img {
 }
 
 .arrowUp {
-  top: -25px; 
+  top: -25px;
   left: 10px;
   border-right-color: transparent;
   border-left-color: transparent;
   border-top-color: transparent;
 }
-
 
 .dialogbox .body {
   position: relative;
@@ -134,7 +133,24 @@ ol li img {
   color: #797979;
 }
 
-#spacing{
-	display : none;
-	margin-top : 10px;
+#spacing {
+  display: none;
+  margin-top: 10px;
+}
+
+#evolution {
+  box-sizing: border-box;
+  background-color: red;
+  position: fixed;
+  top: 35%;
+  left: 42%;
+  transform: (-50%, -50%);
+  border: 1px solid white;
+  border-radius: 10px;
+  z-index: 10;
+  width: 30vh;
+  height: 25vh;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  text-align: center;
 }
