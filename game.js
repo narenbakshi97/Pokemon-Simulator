@@ -59,21 +59,26 @@ function start_game(){
   SoundsManager.play('daily');
   SoundsManager.pause('intro');
   var choice = "";
+  var evolves_at_level;
   if(document.getElementById("c1").checked){
     choice = "Bulbasaur";
     my_pokemon = 1;
+	evolves_at_level = 16;
   }
   else if(document.getElementById("c2").checked){
     choice = "Charmander";
     my_pokemon = 4;
+	evolves_at_level = 16;
   }
   else if(document.getElementById("c3").checked){
     choice = "Squirtle";
     my_pokemon = 7;
+	evolves_at_level = 16;
   }
   else if(document.getElementById("c4").checked){
     choice = "Pikachu";
     my_pokemon = 25;
+	evolves_at_level = null;
   }
   // store to myPokemons
   var newEntry;
@@ -82,6 +87,7 @@ function start_game(){
     newEntry = JSON.parse(this.response);
     newEntry.hp = 50;
     newEntry.exp = newEntry.base_experience;
+	newEntry.evolves_at_level = evolves_at_level;
     myAttacks(newEntry);
     pokemons_caught.push(newEntry);
     showMyPokemons();
@@ -216,6 +222,18 @@ function updatePokemonStats() {
 		'<strong>Health:' + enemy_current_lvl + '/100</strong>';
 	document.getElementById('self_health').innerHTML =
 		'<strong>Health:' + my_current_lvl + '/100</strong>';
+
+	//TRACKS CURRENT LEVEL OF POKEMON (LEVEL CHECK FUNCTION) AND THE MIN LEVEL NEED TO EVOLVE (ACCORDING TO THE POKEMON API)
+	 const current_level = document.getElementById('currentLvl').innerHTML =
+	 `<strong>Current Level: ${pokemons_caught[currentPokemonIndex].current_level || 1}</strong>`
+
+	 const evolution_level = document.getElementById('evolutionLvl').innerHTML = 
+	 `<strong>Next Evolution at Level: ${pokemons_caught[currentPokemonIndex].evolves_at_level} </strong>`
+
+	 // IF THE POKEMON DOES NOT EVOLVE OR THE POKEMON IS AT ITS FINAL EVOLUTION, ONLY SHOW THE CURRENT LEVEL
+	 if(pokemons_caught[currentPokemonIndex].final_evolution || pokemons_caught[currentPokemonIndex].evolves_at_level === null){
+		  document.getElementById('evolutionLvl').classList.add('hidden-elements');		
+	 }
 }
 
 function capitalize(word) {

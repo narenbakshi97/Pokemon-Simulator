@@ -93,10 +93,128 @@ function catchPokemon(){
 }
 function levelCheck(pklvl){
   let i = 0;
+ 
   while(pklvl >= exp_levels[i]){
     i++;
   }
-  let ans = i - 1;
+  
+  let level = i - 1;
+  console.log('ANS', ans)
   console.log("Your pokemon is at:"+(i-1));
   pokemons_caught[currentPokemonIndex].hp = ans*10;
+  
+  //Add current level to pokemon object
+  let currentPokemon = pokemons_caught[currentPokemonIndex]
+  currentPokemon.current_level = level
+  evolution_check(currentPokemon)
 }
+
+//<---------EVOLUTION POP UP ---------->
+  const evolution_modal = document.getElementById("evolution")
+  evolution_modal.addEventListener('click', evolution_popup_modal)
+
+   function evolution_popup_modal(event){
+      const response = event.target.value
+      if(response === 'no'){
+          evolution_modal.classList.add('hidden-elements')
+      }
+      if (response === 'yes'){
+          evolution_modal.classList.add('hidden-elements');
+          start_evolution();
+      }
+  }
+
+//<---------EVOLUTION API ---------->
+   function  evolution_check(currentPokemon){
+      const{id, evolves_at_level, current_level} = currentPokemon
+        if(evolves_at_level === null){
+          return 
+        };
+        if(current_level >= evolves_at_level && !currentPokemon.final_evolution){
+            evolution_modal.classList.remove('hidden-elements') 
+        }
+  }
+       
+          
+
+   function start_evolution(){
+
+    let currentPokemon = pokemons_caught[0];
+
+    //ACCESS THE POKEMON EVOLUTION CHAIN
+      request.open('GET',`https://pokeapi.co/api/v2/pokemon-species/${currentPokemon.id}/`)
+         request.onload = function (){
+            data = JSON.parse(this.response)
+            let current_pokemon_evolution_chain = data.evolution_chain.url;
+            //ADD PROPERTIES FOR THE NEXT (FINAL) POKEMON EVOLUTION  
+            request.open('GET',`${current_pokemon_evolution_chain}`)
+            request.onload = function(){
+                data = JSON.parse(this.response) 
+                let next_evolution;
+                let min_level;
+                let final_evolution = false
+
+                //NEXT POKEMON IN THE EVOLUTION CHAIN AND MINIMUM LEVEL TO TRIGGER EVOLUTION
+                if(!currentPokemon.next_evolution){
+                  next_evolution = data.chain.evolves_to[0].species.name
+                  min_level = data.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level
+              } else {
+                //FINAL POKEMON IN THE EVOLUTION CHAIN AND MINIMUM LEVEL TO TRIGGER EVOLUTION
+                  next_evolution = data.chain.evolves_to[0].evolves_to[0].species.name
+                  min_level = data.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level
+                  final_evolution = true;
+              }
+ 
+
+              // THE EVOLVED POKEMON
+                request.open('GET', `https://pokeapi.co/api/v2/pokemon/${next_evolution}/`);
+                      request.onload = function(){
+                      data = JSON.parse(this.response) 
+                        if (data){   
+                            newEntry = data;
+                            newEntry.hp = 50;
+                            newEntry.exp = newEntry.base_experience;
+                            newEntry.current_level = currentPokemon.evolves_at_level;
+                            newEntry.evolves_at_level = min_level;
+                            newEntry.next_evolution = next_evolution;
+
+                            if(final_evolution){
+                              newEntry.final_evolution = true;
+                            }else{
+                              newEntry.final_evolution = false;
+                            }
+                            myAttacks(newEntry)
+          
+                            //simulate an evolution by removing the current pokemon and replacing it
+                            //with the evolved version
+                            pokemons_caught.pop()
+                            pokemons_caught.push(newEntry);
+                            showMyPokemons();
+                            
+                          let self_image_str = ""+newEntry.id;
+                              while(self_image_str.length < 3){
+                                 self_image_str = ("0"+self_image_str);
+                              } 
+            
+                          document.getElementById("self_image").src = "pokemon/back/"+self_image_str+".gif";
+                          const pokemon_name = capitalize(newEntry.species.name)
+                          document.getElementById("self_appearance").innerHTML = `<b>${pokemon_name}</b>`;
+                          SoundsManager.playSoundFromSource("sounds/00"+my_pokemon+" - "+choice+".wav");
+                      }
+                  
+                }
+                request.send()
+              
+            }
+            request.send()
+         }
+         request.send()
+        
+    }   
+ 
+ 
+
+  
+
+
+

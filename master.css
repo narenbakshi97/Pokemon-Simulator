@@ -138,6 +138,22 @@ ol li img {
   margin-top: 10px;
 }
 
+#evolution {
+  box-sizing: border-box;
+  background-color: red;
+  position: fixed;
+  top: 35%;
+  left: 42%;
+  transform: (-50%, -50%);
+  border: 1px solid white;
+  border-radius: 10px;
+  z-index: 10;
+  width: 30vh;
+  height: 25vh;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
 .btn-sound {
   width: 48px;
   height: 32px;
