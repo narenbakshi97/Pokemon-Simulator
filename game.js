@@ -94,7 +94,7 @@ function start_game(){
   }
   request.send();
   // play the sound of your Pokemon
-  SoundsManager.playSoundFromSource("sounds/00"+my_pokemon+" - "+choice+".wav");
+  SoundsManager.playSoundFromSource("sounds/0"+my_pokemon+" - "+choice+".wav");
   // show my pokemon
   // user part
   document.getElementById("self_appearance").innerHTML = "<b>"+choice+"</b>";

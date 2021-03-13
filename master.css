@@ -154,3 +154,14 @@ ol li img {
   padding-top: 1.5rem;
   text-align: center;
 }
+.btn-sound {
+  width: 48px;
+  height: 32px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+
+.btn-sound:active {
+  transform: scale(0.8);
+}

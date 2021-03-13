@@ -1,7 +1,7 @@
 var SoundsManager = (function() {
     var sounds = {};
     var isMuted = false;
-
+    const bntSound = document.getElementById('btn-sound');
     function registerSound(soundKey, src, isLoop) {
         sounds[soundKey] = new Audio(src);
         if (isLoop) sounds[soundKey].loop = true;
@@ -14,10 +14,14 @@ var SoundsManager = (function() {
     function mute() {
         setVolume(0);
         isMuted = true;
+        bntSound.classList.remove('fa-volume-up');
+        bntSound.classList.add('fa-volume-off');
     }
     function unMute() {
         setVolume(1);
         isMuted = false;
+        bntSound.classList.remove('fa-volume-off');
+        bntSound.classList.add('fa-volume-up');
     }
     function play(soundKey, currentTime) {
         var sound = sounds[soundKey];
